@@ -1,15 +1,35 @@
+Perpetual dApp on https://perp.coolwallet.io
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# Prerequisites
 
 ```bash
-npm run dev
-# or
+❯ node -v
+v18.18.0
+❯ npm -v
+9.8.1
+❯ yarn -v
+1.22.22
+```
+
+You can use `nvm` to set correct node version.
+
+```
+nvm use $(.nvmrc)
+```
+
+# Install dependencies
+
+```
+yarn install
+```
+
+# Develop
+
+```
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
