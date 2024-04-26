@@ -1,5 +1,5 @@
 import {OrderlyConfig, OrderlyConfigCtx} from '@orderly.network/react'
-import boardOptions from './orderly/blockNative.config'
+import boardOptions from './orderly/blockNative.config';
 
 const config = (ctx: OrderlyConfigCtx): OrderlyConfig => {
   return {
