@@ -43,8 +43,8 @@ const config = (ctx: OrderlyConfigCtx): OrderlyConfig => {
          */
         tradingView: {
           // TradingView charting library
-          scriptSRC: '/public/tradingView/charting_library/charting_library.js',
-          library_path: '/public/tradingView/charting_library',
+          scriptSRC: '/tradingView/charting_library/charting_library.js',
+          library_path: '/tradingView/charting_library/charting_library.js',
           // optional theme css
           // customCssUrl: "/tradingview/chart.css",
         },
