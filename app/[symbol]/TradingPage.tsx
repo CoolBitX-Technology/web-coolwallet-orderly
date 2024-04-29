@@ -27,27 +27,26 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   );
   return (
     <ConnectorProvider {...wallet}>
-      <OrderlyConfigProvider networkId="mainnet" brokerId={app.brokerId}>
-        <OrderlyAppProvider
-          networkId="mainnet"
-          brokerId={app.brokerId}
-          brokerName={app.brokerName}
-          appIcons={app.appIcons}
-          onChainChanged={onChainChanged}
-          shareOptions={{ pnl: { backgroundImages: [] } }}
-          theme={{}}
-        >
-          <TradingPage
-            symbol={symbol}
-            tradingViewConfig={
-              pages.trading?.tradingView as TradingViewChartConfig
-            }
-            onSymbolChange={(symbol) => {
-              router.push(`/${symbol.symbol}`);
-            }}
-          />
-        </OrderlyAppProvider>
-      </OrderlyConfigProvider>
+      <OrderlyAppProvider
+        // networkId="testnet"
+        networkId="testnet" // for test only
+        brokerId={app.brokerId}
+        brokerName={app.brokerName}
+        appIcons={app.appIcons}
+        onChainChanged={onChainChanged}
+        shareOptions={{ pnl: { backgroundImages: [] } }}
+        theme={{}}
+      >
+        <TradingPage
+          symbol={symbol}
+          tradingViewConfig={
+            pages.trading?.tradingView as TradingViewChartConfig
+          }
+          onSymbolChange={(symbol) => {
+            router.push(`/${symbol.symbol}`);
+          }}
+        />
+      </OrderlyAppProvider>
     </ConnectorProvider>
   );
 }
