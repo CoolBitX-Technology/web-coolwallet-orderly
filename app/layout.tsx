@@ -6,8 +6,8 @@ import "@orderly.network/react/dist/styles.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Orderly SDK Example",
-  description: "Orderly SDK Example",
+  title: 'CoolWallet Perpetual Contract',
+  description: 'CoolWallet Perpetual Contract',
 };
 
 export default function RootLayout({

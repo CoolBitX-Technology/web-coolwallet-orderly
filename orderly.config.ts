@@ -27,11 +27,11 @@ const config = (ctx: OrderlyConfigCtx): OrderlyConfig => {
       appIcons: {
         //
         main: {
-          img: '/orderly-logo.svg',
+          img: '/coolwallet.svg',
         },
         //
         secondary: {
-          img: '/orderly-logo-secondary.svg',
+          img: '/coolwallet.svg',
         },
       },
     },
