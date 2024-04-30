@@ -8,9 +8,9 @@ import injectedModule from '@web3-onboard/injected-wallets';
 const boardOptions: Partial<InitOptions> = {
   wallets: [injectedModule()],
   appMetadata: {
-    name: 'Orderly',
-    icon: '/Orderly.svg',
-    description: 'Orderly',
+    name: 'CoolWallet Perpetual Contract',
+    icon: '/coolwallet.svg',
+    description: 'CoolWallet Perpetual Contract',
     recommendedInjectedWallets: [
       { name: 'MetaMask', url: 'https://metamask.io' },
     ],
