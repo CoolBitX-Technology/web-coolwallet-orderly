@@ -1,6 +1,5 @@
 'use client';
 import { ConnectorProvider } from '@orderly.network/web3-onboard';
-import { OrderlyConfigProvider } from '@orderly.network/hooks';
 import { useRouter } from 'next/navigation';
 import { OrderlyAppProvider, TradingPage } from '@orderly.network/react';
 import Config from '@/orderly.config';
@@ -28,8 +27,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   return (
     <ConnectorProvider {...wallet}>
       <OrderlyAppProvider
-        // networkId="testnet"
-        networkId="testnet" // for test only
+        networkId="mainnet"
         brokerId={app.brokerId}
         brokerName={app.brokerName}
         appIcons={app.appIcons}
