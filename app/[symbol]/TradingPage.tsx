@@ -1,6 +1,5 @@
 'use client';
 import { ConnectorProvider } from '@orderly.network/web3-onboard';
-import { OrderlyConfigProvider } from '@orderly.network/hooks';
 import { useRouter } from 'next/navigation';
 import { OrderlyAppProvider, TradingPage } from '@orderly.network/react';
 import Config from '@/orderly.config';
