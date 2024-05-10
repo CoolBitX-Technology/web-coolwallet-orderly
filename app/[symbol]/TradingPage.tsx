@@ -27,8 +27,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   return (
     <ConnectorProvider {...wallet}>
       <OrderlyAppProvider
-        // networkId="testnet"
-        networkId="testnet" // for test only
+        networkId="testnet"
         brokerId={app.brokerId}
         brokerName={app.brokerName}
         appIcons={app.appIcons}
