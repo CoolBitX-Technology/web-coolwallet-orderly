@@ -5,6 +5,7 @@ import { OrderlyAppProvider, TradingPage } from '@orderly.network/react';
 import Config from '@/orderly.config';
 import { useCallback } from 'react';
 import { TradingViewChartConfig } from '@orderly.network/react/esm/block/tradingView';
+import { Arbitrum, Base, Optimism, Polygon } from '@orderly.network/types';
 
 export default function Trading({ params }: { params: { symbol: string } }) {
   const symbol = params.symbol.startsWith('PERP_')
@@ -24,6 +25,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
     },
     [symbol]
   );
+
   return (
     <ConnectorProvider {...wallet}>
       <OrderlyAppProvider
@@ -34,6 +36,10 @@ export default function Trading({ params }: { params: { symbol: string } }) {
         onChainChanged={onChainChanged}
         shareOptions={{ pnl: { backgroundImages: [] } }}
         theme={{}}
+        chainFilter={{
+          mainnet: [Arbitrum, Base, Polygon, Optimism],
+          testnet: [],
+        }}
       >
         <TradingPage
           symbol={symbol}
