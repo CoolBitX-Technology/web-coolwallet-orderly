@@ -2,6 +2,14 @@ Perpetual dApp on https://perp.coolwallet.io
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Deployment Repos
+
+This repository only saved souce code, the deployments are in the following repositories:
+
+1. Production: https://github.com/coolwallet-team/web-coolwallet-orderly which deployed on https://perp.coolwallet.io
+2. Dev: https://github.com/coolwallet-team/dev-web-coolwallet-orderly which deployed on https://dev-perp.coolwallet.io
+
+When you push to the `main` branch of deployment repositories, the deployment will be triggered automatically.
 
 # Prerequisites
 
