@@ -3,10 +3,11 @@ import { ConnectorProvider } from '@orderly.network/web3-onboard';
 import { useRouter } from 'next/navigation';
 import { OrderlyAppProvider, TradingPage } from '@orderly.network/react';
 import Config from '@/orderly.config';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TradingViewChartConfig } from '@orderly.network/react/esm/block/tradingView';
 import { Arbitrum, Base, Optimism, Polygon } from '@orderly.network/types';
 import NotificationView from './NorificationView';
+
 
 export default function Trading({ params }: { params: { symbol: string } }) {
   const symbol = params.symbol.startsWith('PERP_')
@@ -27,17 +28,33 @@ export default function Trading({ params }: { params: { symbol: string } }) {
     [symbol]
   );
 
-  const [isShowing, setIsShowing] = useState(true);
+  // notification
+  const [showNotification, setShowNotification] = useState(true);
+  const dateFormatter = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+
+  // 時間不在區間中 or message = "" 也不會顯示 notification
+  const startTime = new Date('2024-08-19T09:00:00');
+  const endTime = new Date('2024-08-20T18:00:00');
+  const message = `服務將會在 ${dateFormatter.format(startTime)} – ${dateFormatter.format(endTime)} 暫停`;
+  // const message = ""
 
   const handleNotificationClose = () => {
-    console.log('closed notification')
-    setIsShowing(false)
+    setShowNotification(false)
   }
 
   return (
     <ConnectorProvider {...wallet}>
-      {isShowing && <NotificationView
-        message="服務將會在 xxxx/xx/xx mm:ss – mm:ss 暫停， 如果這邊太長的話就斷行做顯示～"
+      {showNotification && <NotificationView
+        message={message}
+        startTime={startTime}
+        endTime={endTime} 
         onClose={handleNotificationClose}
       />}
       <OrderlyAppProvider

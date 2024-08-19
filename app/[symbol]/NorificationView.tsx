@@ -3,16 +3,25 @@ import styled from 'styled-components';
 
 type NotificationProps = {
     message: string;
+    startTime: Date;
+    endTime: Date;
     onClose: () => void;
 };
 
-const NotificationView: React.FC<NotificationProps> = ({ message, onClose }) => {
-    return (
-        <Container>
-            <Message>{message}</Message>
-            <CloseButton onClick={onClose}>X</CloseButton>
-        </Container>
-    );
+const NotificationView: React.FC<NotificationProps> = ({ message, startTime, endTime, onClose }) => {
+    const currentDate = new Date()
+    if (currentDate >= startTime && currentDate <= endTime && message !== "") {
+        return (
+            <Container>
+                <Message>{message}</Message>
+                <CloseButton onClick={onClose}>X</CloseButton>
+            </Container>
+        );
+    } else {
+        return null
+    }
+
+
 };
 
 const Container = styled.div`
