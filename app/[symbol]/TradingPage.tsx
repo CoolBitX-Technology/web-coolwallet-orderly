@@ -6,8 +6,19 @@ import Config from '@/orderly.config';
 import { useCallback, useEffect, useState } from 'react';
 import { TradingViewChartConfig } from '@orderly.network/react/esm/block/tradingView';
 import { Arbitrum, Base, Optimism, Polygon } from '@orderly.network/types';
-import NotificationView from './NorificationView';
+import NotificationView from './NotificationView';
 
+function getMessage(startTime: Date, endTime: Date): string {
+  const dateFormatter = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+  return `服務將會在 ${dateFormatter.format(startTime)} – ${dateFormatter.format(endTime)} 暫停`;
+}
 
 export default function Trading({ params }: { params: { symbol: string } }) {
   const symbol = params.symbol.startsWith('PERP_')
@@ -30,28 +41,19 @@ export default function Trading({ params }: { params: { symbol: string } }) {
 
   // notification
   const [showNotification, setShowNotification] = useState(true);
-  const dateFormatter = new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  });
-
-  // 時間不在區間中 or message = "" 也不會顯示 notification
+  
+   // 時間不在區間中 or message = "" 也不會顯示 notification
   const startTime = new Date('2024-08-19T09:00:00');
   const endTime = new Date('2024-08-20T18:00:00');
-  const message = `服務將會在 ${dateFormatter.format(startTime)} – ${dateFormatter.format(endTime)} 暫停`;
-  // const message = ""
+  const message = getMessage(startTime, endTime)
 
   const handleNotificationClose = () => {
     setShowNotification(false)
   }
 
   return (
-    <ConnectorProvider {...wallet}>
-      {showNotification && <NotificationView
+       <ConnectorProvider {...wallet}>
+       {showNotification && <NotificationView
         message={message}
         startTime={startTime}
         endTime={endTime} 
@@ -70,8 +72,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
           testnet: [],
         }}
       >
-        <>
-          <TradingPage
+        <TradingPage
           symbol={symbol}
           tradingViewConfig={
             pages.trading?.tradingView as TradingViewChartConfig
@@ -80,8 +81,9 @@ export default function Trading({ params }: { params: { symbol: string } }) {
             router.push(`/${symbol.symbol}`);
           }}
         />
-        </>
       </OrderlyAppProvider>
     </ConnectorProvider>
+
+   
   );
 }

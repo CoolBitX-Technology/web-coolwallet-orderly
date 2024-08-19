@@ -14,7 +14,7 @@ const NotificationView: React.FC<NotificationProps> = ({ message, startTime, end
         return (
             <Container>
                 <Message>{message}</Message>
-                <CloseButton onClick={onClose}>X</CloseButton>
+                <CloseButton onClick={onClose}><img src="/closeBtn.svg" alt="" /></CloseButton>
             </Container>
         );
     } else {
@@ -27,27 +27,23 @@ const NotificationView: React.FC<NotificationProps> = ({ message, startTime, end
 const Container = styled.div`
   background-color: #B43C3C;
   color: white;
-  padding: 10px;
-  position: fixed;
-  top: 0;
+  padding: 12px;
+  position: relative;
   width: 100%;
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  text-align: left;
+  align-items: start;
 `;
 
-const Message = styled.span`
-  flex: 1;
-`;
-
+const Message = styled.p`
+font-size: 16px
+ 
+`
 const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 16px;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
+  align-items: center;
   margin-left: 16px;
 `;
 
