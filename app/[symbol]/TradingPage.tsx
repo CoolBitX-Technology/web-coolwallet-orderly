@@ -34,14 +34,12 @@ export default function Trading({ params }: { params: { symbol: string } }) {
     setIsShowing(false)
   }
 
-
   return (
     <ConnectorProvider {...wallet}>
-      <NotificationView
+      {isShowing && <NotificationView
         message="服務將會在 xxxx/xx/xx mm:ss – mm:ss 暫停， 如果這邊太長的話就斷行做顯示～"
-        isShowing={isShowing}
         onClose={handleNotificationClose}
-      />
+      />}
       <OrderlyAppProvider
         networkId="mainnet"
         brokerId={app.brokerId}

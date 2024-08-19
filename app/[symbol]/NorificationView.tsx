@@ -3,13 +3,10 @@ import styled from 'styled-components';
 
 type NotificationProps = {
     message: string;
-    isShowing: boolean;
     onClose: () => void;
 };
 
-const NotificationView: React.FC<NotificationProps> = ({ message, isShowing, onClose }) => {
-    if (!isShowing) return null;
-
+const NotificationView: React.FC<NotificationProps> = ({ message, onClose }) => {
     return (
         <Container>
             <Message>{message}</Message>
