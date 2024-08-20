@@ -9,8 +9,8 @@ type NotificationProps = {
 };
 
 const NotificationView: React.FC<NotificationProps> = ({ message, startTime, endTime, onClose }) => {
-    const currentDate = new Date()
-    if (currentDate >= startTime && currentDate <= endTime && message !== "") {
+    const currentTime = new Date()
+    if (currentTime.getTime >= startTime.getTime && currentTime.getTime <= endTime.getTime && message !== "") {
         return (
             <Container>
                 <Message>{message}</Message>
