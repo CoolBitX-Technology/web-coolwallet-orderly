@@ -20,8 +20,6 @@ const NotificationView: React.FC<NotificationProps> = ({ message, startTime, end
     } else {
         return null
     }
-
-
 };
 
 const Container = styled.div`
