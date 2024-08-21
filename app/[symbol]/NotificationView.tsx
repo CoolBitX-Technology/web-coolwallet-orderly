@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 type NotificationProps = {
     message: string;
-    startTime: Date;
-    endTime: Date;
+    startDate: Date;
+    endDate: Date;
     onClose: () => void;
 };
 
-const NotificationView: React.FC<NotificationProps> = ({ message, startTime, endTime, onClose }) => {
+const NotificationView: React.FC<NotificationProps> = ({ message, startDate, endDate, onClose }) => {
     const currentDate = new Date()
-    if (currentDate >= startTime && currentDate <= endTime && message !== "") {
+    if (currentDate.getTime() >= startDate.getTime() && currentDate.getTime() <= endDate.getTime() && !!message) {
         return (
             <Container>
                 <Message>{message}</Message>

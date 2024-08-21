@@ -42,10 +42,9 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   // notification
   const [showNotification, setShowNotification] = useState(true);
   
-   // 時間不在區間中 or message = "" 將不會顯示 notification
-  const startTime = new Date('2024-08-19T09:00:00');
-  const endTime = new Date('2024-08-20T18:00:00');
-  const message = getMessage(startTime, endTime)
+  const startDate = new Date('2024-08-19T09:00:00+08:00');
+  const endDate = new Date('2024-08-20T18:00:00+08:00');
+  const message = getMessage(startDate, endDate)
 
   const handleNotificationClose = () => {
     setShowNotification(false)
@@ -55,8 +54,8 @@ export default function Trading({ params }: { params: { symbol: string } }) {
        <ConnectorProvider {...wallet}>
        {showNotification && <NotificationView
         message={message}
-        startTime={startTime}
-        endTime={endTime} 
+        startDate={startDate}
+        endDate={endDate} 
         onClose={handleNotificationClose}
       />}
       <OrderlyAppProvider
@@ -83,7 +82,5 @@ export default function Trading({ params }: { params: { symbol: string } }) {
         />
       </OrderlyAppProvider>
     </ConnectorProvider>
-
-   
   );
 }
