@@ -17,7 +17,8 @@ function getMessage(startTime: Date, endTime: Date): string {
     minute: '2-digit',
     second: '2-digit',
   });
-  return `服務將會在 ${dateFormatter.format(startTime)} – ${dateFormatter.format(endTime)} 暫停`;
+  // return `服務將會在 ${dateFormatter.format(startTime)} – ${dateFormatter.format(endTime)} 暫停`;
+  return 'Futures will be unavailable on August 27th, 2024, from 06:00 to 07:00 AM (UTC) due to a scheduled Orderly upgrade. Please be aware that losses during this period will not be compensated.'
 }
 
 export default function Trading({ params }: { params: { symbol: string } }) {
@@ -42,8 +43,8 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   // notification
   const [showNotification, setShowNotification] = useState(true);
   
-  const startDate = new Date('2024-08-19T09:00:00+08:00');
-  const endDate = new Date('2024-08-20T18:00:00+08:00');
+  const startDate = new Date('2024-08-22T00:00:00+00:00');
+  const endDate =   new Date('2024-08-27T07:00:00+00:00');
   const message = getMessage(startDate, endDate)
 
   const handleNotificationClose = () => {
