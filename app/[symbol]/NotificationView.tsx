@@ -14,7 +14,9 @@ const NotificationView: React.FC<NotificationProps> = ({ message, startDate, end
         return (
             <Container>
                 <Message>{message}</Message>
-                <CloseButton onClick={onClose}><img src="/closeBtn.svg" alt="" /></CloseButton>
+                <div>
+                    <CloseButton onClick={onClose}><CloseImage src="/closeBtn.svg" alt=""/></CloseButton>
+                </div>
             </Container>
         );
     } else {
@@ -43,6 +45,11 @@ const CloseButton = styled.button`
   height: 20px;
   align-items: center;
   margin-left: 16px;
+`;
+
+const CloseImage = styled.img`
+    width: 12px;
+    height: 12px;
 `;
 
 export default NotificationView;

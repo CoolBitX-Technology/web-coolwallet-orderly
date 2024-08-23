@@ -43,9 +43,9 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   // notification
   const [showNotification, setShowNotification] = useState(true);
   
-  const startDate = new Date('2024-08-22T00:00:00+00:00');
-  const endDate =   new Date('2024-08-27T07:00:00+00:00');
-  const message = getMessage(startDate, endDate)
+  const startDate = new Date('2024-08-23T12:00:00+00:00');
+  const endDate = new Date('2024-08-27T07:00:00+00:00');
+  const message = "Futures will be unavailable on August 27th, 2024, from 06:00 to 07:00 AM (UTC) due to a scheduled Orderly upgrade. Please be aware that losses during this period will not be compensated."
 
   const handleNotificationClose = () => {
     setShowNotification(false)
