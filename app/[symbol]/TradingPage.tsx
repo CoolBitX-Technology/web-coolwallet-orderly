@@ -60,7 +60,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
         onClose={handleNotificationClose}
       />}
       <OrderlyAppProvider
-        networkId="testnet"
+        networkId="mainnet"
         brokerId={app.brokerId}
         brokerName={app.brokerName}
         appIcons={app.appIcons}
