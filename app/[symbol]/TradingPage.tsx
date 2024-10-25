@@ -43,7 +43,7 @@ export default function Trading({ params }: { params: { symbol: string } }) {
   // notification
   const [showNotification, setShowNotification] = useState(true);
   
-  const startDate = new Date('2024-10-26T00:00:00+00:00');
+  const startDate = new Date('2024-10-25T00:00:00+00:00');
   const endDate = new Date('2024-10-29T08:00:00+00:00');
   const message = "Futures will be unavailable on October 29th, 2024, from 06:00 to 08:00 AM (UTC) due to a scheduled Orderly upgrade. Please be aware that losses during this period will not be compensated."
 
